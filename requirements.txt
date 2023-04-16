@@ -1,0 +1,17 @@
+akshare
+cvxopt
+pandas==1.5.3
+pytz
+numpy
+easyquotation
+scipy
+matplotlib
+tqdm
+empyrical
+requests
+hyperopt
+joblib
+scikit-learn
+retrying
+efinance
+psutil
