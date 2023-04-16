@@ -1,5 +1,7 @@
-from common import tz
+import pytz
 import datetime
+
+tz = pytz.timezone('Asia/Shanghai')
 
 
 def run():
