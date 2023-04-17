@@ -1,5 +1,8 @@
+from datetime import datetime
+
+import pytz
+
 from QQEmailSender import Mail
-from stock_data import StockData
 import time
 
 import pandas as pd
@@ -88,72 +91,89 @@ class StockData:
         market_df.to_csv("data/market_df.csv", index=False)
 
 
+def cal_continue_down(df, cnt=5, future=1):
+    result = []
+
+    i = 0
+    down_count = 0
+    while i < len(df) - 5:
+        down_count = 0 if df.iloc[i]['is_up'] else down_count + 1
+        if down_count == cnt:
+            increase_rates = [(df.iloc[i + ele + 1]['date'], df.iloc[i + ele + 1]['close'] / df.iloc[i]['close'] - 1)
+                              for ele in range(future)]
+            select_data = [ele for ele in increase_rates if ele[1] > 0]
+            if not select_data:
+                result.append(increase_rates[-1])
+            else:
+                result.append(select_data[0])
+        i += 1
+    return result
+
+
+def buy_down_strategy_history(stock_dfs):
+    history_data = []
+    for code, df in tqdm.tqdm(list(stock_dfs.items())):
+        df["is_up"] = (df['close'] - df['close'].shift(1)) > 0
+        result = cal_continue_down(df, cnt=5, future=2)
+        if result:
+            history_data.extend([(code, date, increase_rate) for date, increase_rate in result])
+
+    history_data = pd.DataFrame(history_data, columns=['code', 'date', 'increase_rate'])
+    history_data["success_rate"] = history_data.groupby("code")["increase_rate"].transform(
+        lambda x: (x > 0).sum() / len(x))
+    history_data = history_data.sort_values(by=['code', 'date'])
+    history_data.to_csv("data/history_data.csv", index=False)
+    return history_data
+
+
+def write_table(title, columns, df):
+    string = ""
+    string += title + "\n"
+    table_header = ' | ' + ' | '.join(columns) + ' | '
+    table_header += "\n" + ' | ' + ' | '.join([":-----" for _ in range(len(columns))]) + ' | '
+    for i in range(len(df)):
+        row = df.iloc[i]
+        row = [str(ele) for ele in list(row)]
+        table_header += "\n" + ' | ' + ' | '.join(row) + ' | '
+    string += table_header + "\n"
+    return string
+
 
 def run_continue_down_strategy():
     start_time = time.time()
     s = StockData()
     s.update_date()
     stock_dfs = s.get_all_data()
-
-    buy_down_strategy_list = pd.read_csv("data/buy_down_strategy.csv", dtype=object)
-    buy_down_strategy_list = set(buy_down_strategy_list["code"].tolist())
+    buy_down_strategy_history(stock_dfs)
+    history_df = pd.read_csv("data/history_data.csv")
+    history_df.code = history_df.code.map(str)
+    history_df = history_df[history_df.success_rate >= 0.6]
+    buy_down_strategy_list = dict(history_df[['code', 'success_rate']].values.tolist())
     buy_stocks = []
+    fund_etf_fund_daily_em_df = ak.fund_etf_fund_daily_em()
+    stock_name_map = dict(fund_etf_fund_daily_em_df[['基金代码', '基金简称']].values.tolist())
+
     for code, df in tqdm.tqdm(list(stock_dfs.items())):
         df["is_up"] = (df['close'] - df['close'].shift(1)) > 0
         df = df.tail(5)
         if df["is_up"].sum() == 0 and str(code) in buy_down_strategy_list:
-            buy_stocks.append(code)
+            buy_stocks.append([code,
+                               df.iloc[-1]['date'],
+                               stock_name_map[code]])
     if buy_stocks:
         mail = Mail()
-        fund_etf_fund_daily_em_df = ak.fund_etf_fund_daily_em()
-        stock_name_map = dict(fund_etf_fund_daily_em_df[['基金代码', '基金简称']].values.tolist())
-        messages = [f"{ele}\t{stock_name_map[ele]}" for ele in buy_stocks]
+        messages = [f"{ele[0]}\t{ele[1]}" for ele in buy_stocks]
         mail.send('\n'.join(messages))
+        buy_stocks = pd.DataFrame(buy_stocks, columns=['code', 'date', 'name'])
+        tz = pytz.timezone('Asia/Shanghai')
+        now = datetime.now(tz).strftime("%Y%m%d")
+        title = "# {}量化交易报告".format(now)
+        string = write_table(title, buy_stocks.columns.tolist(), buy_stocks)
+        with open("README.md", "w", encoding="utf-8") as fh:
+            fh.write(string)
     end_time = time.time()
     print(end_time - start_time)
-    return buy_stocks
-
-
-def continue_down_strategy(df, cnt=5):
-    result = []
-
-    i = 0
-    down_count = 0
-    while i < len(df) - 5:
-        if not df.iloc[i]['is_up']:
-            down_count += 1
-        else:
-            down_count = 0
-        if down_count == cnt:
-            increase_rate = df.iloc[i + 2]['close'] / df.iloc[i]['close'] - 1
-            result.append([df.iloc[i + 2]['date'], increase_rate])
-        i += 1
-    return result
-
-
-def buy_down_strategy():
-    s = StockData()
-    stock_dfs = s.get_all_data()
-    results = []
-    history_data = []
-    for code, df in tqdm.tqdm(list(stock_dfs.items())):
-        df["is_up"] = (df['close'] - df['close'].shift(1)) > 0
-        result = continue_down_strategy(df)
-        if result:
-            rate = len([ele for ele in result if ele[1] > 0]) / len(result)
-            results.append([code, rate])
-            history_data.extend([(code, date, increase_rate) for date, increase_rate in result])
-    results = pd.DataFrame(results, columns=['code', 'rate'])
-    results = results[results['rate'] > 0.6]
-    results_codes = results.code.tolist()
-    results["code"].to_csv("data/buy_down_strategy.csv", index=False)
-
-    history_data = pd.DataFrame(history_data, columns=['code', 'date', 'increase_rate'])
-    history_data = history_data[history_data.code.isin(results_codes)]
-    history_data = history_data.drop_duplicates(subset=["date"])
-    history_data.to_csv("history_data.csv", index=False)
-    return history_data
 
 
 if __name__ == '__main__':
-    print(run_continue_down_strategy())
+    run_continue_down_strategy()
