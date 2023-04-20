@@ -10,8 +10,11 @@ tqdm
 empyrical
 requests
 hyperopt
+lightgbm
 joblib
 scikit-learn
 retrying
 efinance
+pyspark==3.3.2
+pyarrow
 psutil
