@@ -201,15 +201,17 @@ def run_continue_down_strategy():
     s = StockData()
     s.update_date()
     stock_dfs = s.get_all_data()
+    get_all_fund_scale()
     buy_down_strategy_history(stock_dfs)
     history_df = pd.read_csv("data/ads/history_data.csv")
+    scale_df = pd.read_csv("data/dim/scale.csv")
+    scale_df["code"] = scale_df["code"].map(str)
     history_df.code = history_df.code.map(str)
     history_df = history_df[history_df.success_rate >= 0.6]
     buy_down_strategy_list = dict(history_df[['code', 'success_rate']].values.tolist())
     buy_stocks = []
     fund_etf_fund_daily_em_df = ak.fund_etf_fund_daily_em()
     stock_name_map = dict(fund_etf_fund_daily_em_df[['基金代码', '基金简称']].values.tolist())
-
     for code, df in tqdm.tqdm(list(stock_dfs.items())):
         df["is_up"] = (df['close'] - df['close'].shift(1)) > 0
         df = df.tail(5)
@@ -223,14 +225,15 @@ def run_continue_down_strategy():
         messages = [f"{ele[0]}\t{ele[2]}" for ele in buy_stocks]
         mail.send('\n'.join(messages))
         buy_stocks = pd.DataFrame(buy_stocks, columns=['code', 'date', 'name'])
+        buy_stocks = buy_stocks.merge(scale_df, on="code", how='left')
+        buy_stocks = buy_stocks.sort_values(by="scale", ascending=False)
         tz = pytz.timezone('Asia/Shanghai')
         now = datetime.now(tz).strftime("%Y%m%d")
         title = "# {}量化交易报告".format(now)
         string = write_table(title, buy_stocks.columns.tolist(), buy_stocks)
-    ml_string = evaluate()
+
     with open("README.md", "w", encoding="utf-8") as fh:
         fh.write(string)
-        fh.write("\n" + ml_string)
     end_time = time.time()
     print(end_time - start_time)
 
@@ -255,7 +258,7 @@ def get_spark():
 
 
 def get_predict_udf(close, array):
-    if len(array) < 3:
+    if len(array) < 2:
         return None
     buy = [1 for ele in array if ele > close]
     return 1 if buy else 0
@@ -303,7 +306,7 @@ def get_feature(stock_dfs, is_train=True):
     sql = spark_sql[0].format(windows,
                               windows,
                               ts_behind_feature_names,
-                              2, condition)
+                              1, condition)
     print(sql)
     df = spark.sql(sql)
     df_train = df.where((df["y"].isNotNull()) & (df["close_109"].isNotNull()))
@@ -325,11 +328,13 @@ def train_lightgbm():
     s = StockData()
     stock_dfs = s.get_all_data()
     df_train, feature_cols, = get_feature(stock_dfs)
-    df_train = df_train[df_train.date < "2023-01-01"]
-    print(df_train.date.max())
-    x = df_train[feature_cols]
-    y = df_train["y"]
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=12343)
+    df_train_ = df_train[df_train.date < "2022-01-01"]
+    df_test = df_train[(df_train.date >= "2022-01-01") & (df_train.date < "2024-01-01")]
+    # df_valid = df_train[(df_train.date >= "2023-01-01")]
+    # x = df_train[feature_cols]
+    # y = df_train["y"]
+    X_train, X_test = df_train_[feature_cols], df_test[feature_cols]
+    y_train, y_test = df_train_["y"], df_test["y"]
     model = lightgbm.LGBMClassifier(num_leaves=1000,
                                     n_estimators=100000)
     model.fit(X_train, y_train,
@@ -337,7 +342,7 @@ def train_lightgbm():
               early_stopping_rounds=50)
     y_pred = model.predict(X_test)
     print(classification_report(y_test, y_pred))
-    joblib.dump(model, "data/model.pkl", compress=9)
+    joblib.dump(model, "data/model20230421.pkl", compress=9)
     end_time = time.time()
     print(end_time - start_time)
 
