@@ -209,13 +209,13 @@ def run_continue_down_strategy():
     history_df.code = history_df.code.map(str)
     history_df = history_df[history_df.success_rate >= 0.6]
     buy_down_strategy_list = dict(history_df[['code', 'success_rate']].values.tolist())
+    success_rate_mapping = dict(history_df[['code', 'success_rate']].values.tolist())
     buy_stocks = []
     fund_etf_fund_daily_em_df = ak.fund_etf_fund_daily_em()
     stock_name_map = dict(fund_etf_fund_daily_em_df[['基金代码', '基金简称']].values.tolist())
     for code, df in tqdm.tqdm(list(stock_dfs.items())):
         df["is_up"] = (df['close'] - df['close'].shift(1)) > 0
-        df = df.tail(5)
-        if df["is_up"].sum() == 0 and str(code) in buy_down_strategy_list:
+        if df.tail(5)["is_up"].sum() == 0 and str(code) in buy_down_strategy_list and df.tail(6)["is_up"].sum() != 0:
             buy_stocks.append([code,
                                df.iloc[-1]['date'],
                                stock_name_map[code]])
@@ -227,6 +227,7 @@ def run_continue_down_strategy():
         buy_stocks = pd.DataFrame(buy_stocks, columns=['code', 'date', 'name'])
         buy_stocks = buy_stocks.merge(scale_df, on="code", how='left')
         buy_stocks = buy_stocks.sort_values(by="scale", ascending=False)
+        buy_stocks["success_rate"] = buy_stocks["code"].map(success_rate_mapping)
         tz = pytz.timezone('Asia/Shanghai')
         now = datetime.now(tz).strftime("%Y%m%d")
         title = "# {}量化交易报告".format(now)
