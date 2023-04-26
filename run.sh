@@ -1,6 +1,6 @@
 source ~/.bashrc
 pkill python
-workspace=/mnt/d/workspace/qtrade
+workspace=/mnt/d/workspace/qtrade2
 cd ${workspace}
 git pull
 interpreter=/home/zxl/anaconda3/bin/python
