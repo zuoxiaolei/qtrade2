@@ -55,7 +55,7 @@ def get_all_fund_scale():
     fund_scale_old["code"] = fund_scale_old["code"].map(str)
     fund_scale_merge = pd.concat([fund_scale, fund_scale_old], axis=0)
     fund_scale_merge = fund_scale_merge.drop_duplicates(subset=["code"])
-    fund_scale_merge = fund_scale_merge.sort_values(by="scale", ascending=False)
+    fund_scale_merge = fund_scale_merge.sort_values(by=["scale", "code"], ascending=False)
     fund_scale_merge.to_csv("data/dim/scale.csv", index=False)
 
 
