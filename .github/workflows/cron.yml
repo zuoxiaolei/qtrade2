@@ -7,7 +7,7 @@ on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
-  
+
 
 permissions:
   contents: write
@@ -29,7 +29,7 @@ jobs:
           pip install -r requirements.txt
       - name: run application
         run: |
-          python run.py
+          python qtrade.py
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: auto update
