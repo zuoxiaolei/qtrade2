@@ -17,3 +17,24 @@
 2023/04/27 08:09:29.624 [1;34m[I][0m [client.go:72]  Successful connection with server 192.227.155.6:8024
 2023/04/27 08:09:44.544 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:62276
 2023/04/27 08:10:51.236 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:64045
+2023/04/27 08:11:54.569 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:64387
+2023/04/27 08:13:03.095 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:65389
+2023/04/27 08:14:07.962 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:49694
+2023/04/27 08:15:12.778 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:49968
+2023/04/27 08:15:32.674 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:58.218.204.183:2022
+2023/04/27 08:16:17.674 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:65360
+2023/04/27 08:16:25.501 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:142.54.184.202:49852
+2023/04/27 08:16:32.778 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:142.54.184.202:58827
+2023/04/27 08:16:41.092 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3306, remote address:182.160.105.51:60505
+2023/04/27 08:16:41.328 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3306, remote address:182.160.105.51:52118
+2023/04/27 08:16:43.696 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3306, remote address:182.160.105.51:51781
+2023/04/27 08:16:48.803 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:142.54.184.202:52603
+2023/04/27 08:17:21.466 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:63651
+2023/04/27 08:17:57.834 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:142.54.184.202:60721
+2023/04/27 08:18:04.694 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:198.204.251.194:60223
+2023/04/27 08:18:20.281 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:198.204.251.194:52759
+2023/04/27 08:18:26.389 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:64806
+2023/04/27 08:18:44.652 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:198.204.251.194:60317
+2023/04/27 08:19:13.045 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:198.204.251.194:57358
+2023/04/27 08:19:31.389 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:49264
+2023/04/27 08:20:36.386 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:141.95.106.213:64813
