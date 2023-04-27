@@ -2170,21 +2170,18 @@
 2023/04/27 19:19:39.586 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
 2023/04/27 19:19:48.090 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
 2023/04/27 19:19:56.611 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
- [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:1045
-2023/04/27 13:21:26.468 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:1380
-2023/04/27 13:21:27.942 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:4204
-2023/04/27 13:21:28.687 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:5586
-2023/04/27 13:21:30.332 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:8873
-2023/04/27 13:21:33.230 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:14558
-2023/04/27 13:21:34.046 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:15880
-2023/04/27 13:21:36.421 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:20563
-2023/04/27 13:21:37.235 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:5.181.86.111:14569
-2023/04/27 13:21:38.767 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:5.181.86.122:53538
-2023/04/27 13:21:38.782 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:25165
-2023/04/27 13:21:39.523 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:198.204.251.194:64115
-2023/04/27 13:21:42.762 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:185.190.24.45:62623
-2023/04/27 13:21:42.896 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:185.190.24.102:21497
-2023/04/27 13:21:46.069 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:5.181.86.18:27901
+2023/04/27 19:20:05.075 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:13.726 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:22.201 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:31.900 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:40.521 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:49.019 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:57.643 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:21:06.275 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:21:14.792 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:21:23.390 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:21:31.822 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+3389, remote address:5.181.86.18:27901
 2023/04/27 13:21:47.986 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:185.190.24.101:30083
 2023/04/27 13:21:48.580 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:80.66.66.177:44567
 2023/04/27 13:21:49.067 [1;44m[D][0m [client.go:216]  new tcp connection with the goal of 127.0.0.1:3389, remote address:5.181.86.22:54126
@@ -5118,3 +5115,13 @@
 2023/04/27 19:19:36.756 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
 2023/04/27 19:19:45.295 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
 2023/04/27 19:19:53.898 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:10.816 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:19.474 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:28.048 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:39.877 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:48.425 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:20:56.916 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:21:05.528 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:21:14.047 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:21:22.547 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
+2023/04/27 19:21:31.168 [1;31m[E][0m [client.go:63]  The connection server failed and will be reconnected in five seconds, error dial tcp 192.227.155.6:8024: connect: connection refused
