@@ -144,10 +144,10 @@ def run_continue_down_strategy():
         buy_stocks["success_rate"] = buy_stocks["code"].map(success_rate_mapping)
         tz = pytz.timezone('Asia/Shanghai')
         now = datetime.now(tz).strftime("%Y%m%d")
-        title = "# {}量化交易报告".format(now)
+        title = "# {}".format(now)
         string = write_table(title, buy_stocks.columns.tolist(), buy_stocks)
 
-    with open("README.md", "w", encoding="utf-8") as fh:
+    with open("qtrade.md", "w", encoding="utf-8") as fh:
         fh.write(string)
     end_time = time.time()
     print(end_time - start_time)
