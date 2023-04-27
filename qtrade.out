@@ -1,81 +1,27 @@
   0%|          | 0/759 [00:00<?, ?it/s]Traceback (most recent call last):
+Traceback (most recent call last):
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
 KeyError: '511010'
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-Traceback (most recent call last):
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-KeyError: '511180'
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '159649'
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '511220'
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '511520'
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '159981'
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '511580'
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '511270'
-KeyError: '511360'
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '159830'
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '511380'
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
 KeyError: '159834'
 Traceback (most recent call last):
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '159980'
+KeyError: '159812'
+Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '511260'
 Traceback (most recent call last):
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
@@ -83,17 +29,95 @@ Traceback (most recent call last):
     "secid": f"{code_id_dict[symbol]}.{symbol}",
 KeyError: '159833'
 Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+Traceback (most recent call last):
+KeyError: '159831'
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
 Traceback (most recent call last):
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+KeyError: '159981'
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '511580'
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '159816'
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '159830'
 KeyError: '511020'
-KeyError: '511060'
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '511360'
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '511380'
+KeyError: '159985'
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+KeyError: '511220'
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+Traceback (most recent call last):
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '511030'
+KeyError: '159972'
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+KeyError: '511520'
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+  0%|          | 3/759 [00:00<01:01, 12.29it/s]KeyError: '159980'
+Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '511180'
 Traceback (most recent call last):
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
@@ -105,56 +129,36 @@ Traceback (most recent call last):
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '159831'
+KeyError: '159649'
 Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-Traceback (most recent call last):
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-KeyError: '511260'
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '159816'
-  0%|          | 2/759 [00:00<05:19,  2.37it/s]Traceback (most recent call last):
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
 KeyError: '159650'
 Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '511270'
+  1%|          | 5/759 [00:01<03:40,  3.42it/s]Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
+  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
+    "secid": f"{code_id_dict[symbol]}.{symbol}",
+KeyError: '511060'
+  1%|          | 8/759 [00:02<03:54,  3.20it/s]  3%|▎         | 22/759 [00:02<01:07, 10.87it/s]  4%|▎         | 28/759 [00:03<01:24,  8.62it/s]Traceback (most recent call last):
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
 Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '511030'
-KeyError: '159812'
-Traceback (most recent call last):
+  6%|▌         | 42/759 [00:06<02:07,  5.63it/s]Traceback (most recent call last):
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '159972'
-  0%|          | 3/759 [00:01<04:49,  2.62it/s]  3%|▎         | 19/759 [00:02<01:05, 11.28it/s]  3%|▎         | 20/759 [00:02<01:21,  9.09it/s]  3%|▎         | 21/759 [00:03<02:02,  6.03it/s]  3%|▎         | 22/759 [00:03<02:02,  6.00it/s]  6%|▌         | 42/759 [00:06<02:06,  5.66it/s]Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-  File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
-    "secid": f"{code_id_dict[symbol]}.{symbol}",
 Traceback (most recent call last):
 KeyError: '159670'
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
-    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
   File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
     df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
@@ -162,14 +166,16 @@ Traceback (most recent call last):
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
 KeyError: '513390'
-KeyError: '513950'
+KeyError: '159697'
+  File "/mnt/d/workspace/qtrade2/StockData.py", line 28, in get_stock_data
+    df = ak.fund_etf_hist_em(symbol=code, period="daily", start_date="19900101",
   File "/home/zxl/anaconda3/lib/python3.9/site-packages/akshare/fund/fund_etf_em.py", line 154, in fund_etf_hist_em
     "secid": f"{code_id_dict[symbol]}.{symbol}",
-KeyError: '159697'
- 27%|██▋       | 203/759 [00:17<00:43, 12.82it/s]100%|██████████| 759/759 [00:17<00:00, 42.87it/s]
-  0%|          | 0/759 [00:00<?, ?it/s]  0%|          | 1/759 [00:01<13:33,  1.07s/it]  4%|▍         | 34/759 [00:01<00:18, 39.37it/s]  4%|▍         | 34/759 [00:15<00:18, 39.37it/s] 11%|█         | 82/759 [00:15<02:19,  4.85it/s]100%|██████████| 759/759 [00:15<00:00, 49.42it/s]
-  0%|          | 0/731 [00:00<?, ?it/s]  1%|          | 5/731 [00:00<00:15, 45.91it/s]  2%|▏         | 11/731 [00:00<00:14, 50.94it/s]  2%|▏         | 18/731 [00:00<00:12, 58.77it/s]  4%|▍         | 28/731 [00:00<00:09, 72.58it/s]  5%|▌         | 37/731 [00:00<00:09, 76.66it/s]  8%|▊         | 56/731 [00:00<00:05, 113.36it/s] 10%|▉         | 72/731 [00:00<00:05, 126.14it/s] 12%|█▏        | 85/731 [00:01<00:08, 75.69it/s]  13%|█▎        | 95/731 [00:01<00:10, 61.41it/s] 14%|█▍        | 104/731 [00:01<00:11, 52.92it/s] 15%|█▌        | 111/731 [00:01<00:12, 48.94it/s] 16%|█▌        | 117/731 [00:01<00:13, 47.01it/s] 17%|█▋        | 123/731 [00:02<00:13, 46.39it/s] 18%|█▊        | 129/731 [00:02<00:13, 44.61it/s] 18%|█▊        | 134/731 [00:02<00:13, 43.41it/s] 19%|█▉        | 139/731 [00:02<00:13, 43.44it/s] 20%|█▉        | 144/731 [00:02<00:13, 42.98it/s] 20%|██        | 149/731 [00:02<00:17, 33.93it/s] 21%|██        | 153/731 [00:02<00:19, 30.02it/s] 21%|██▏       | 157/731 [00:03<00:20, 28.31it/s] 22%|██▏       | 161/731 [00:03<00:20, 27.42it/s] 22%|██▏       | 164/731 [00:03<00:20, 27.78it/s] 23%|██▎       | 167/731 [00:03<00:19, 28.21it/s] 23%|██▎       | 171/731 [00:03<00:19, 29.00it/s] 24%|██▍       | 175/731 [00:03<00:19, 29.18it/s] 24%|██▍       | 178/731 [00:03<00:19, 29.01it/s] 25%|██▍       | 182/731 [00:03<00:18, 29.55it/s] 25%|██▌       | 186/731 [00:04<00:17, 30.61it/s] 26%|██▌       | 190/731 [00:04<00:17, 30.63it/s] 27%|██▋       | 194/731 [00:04<00:17, 30.26it/s] 27%|██▋       | 198/731 [00:04<00:17, 30.85it/s] 28%|██▊       | 202/731 [00:04<00:16, 31.60it/s] 28%|██▊       | 206/731 [00:04<00:16, 31.18it/s] 29%|██▊       | 210/731 [00:04<00:16, 32.09it/s] 29%|██▉       | 214/731 [00:04<00:15, 33.22it/s] 30%|██▉       | 218/731 [00:05<00:46, 11.01it/s] 30%|███       | 221/731 [00:06<00:58,  8.77it/s] 31%|███       | 223/731 [00:06<01:04,  7.93it/s] 31%|███       | 225/731 [00:07<01:08,  7.34it/s] 31%|███       | 227/731 [00:07<01:12,  6.91it/s] 31%|███▏      | 229/731 [00:07<01:15,  6.65it/s] 31%|███▏      | 230/731 [00:07<01:16,  6.56it/s] 32%|███▏      | 231/731 [00:08<01:16,  6.56it/s] 32%|███▏      | 232/731 [00:08<01:16,  6.52it/s] 32%|███▏      | 233/731 [00:08<01:16,  6.50it/s] 32%|███▏      | 234/731 [00:08<01:16,  6.51it/s] 32%|███▏      | 235/731 [00:08<01:16,  6.47it/s] 32%|███▏      | 236/731 [00:08<01:16,  6.46it/s] 32%|███▏      | 237/731 [00:09<01:18,  6.29it/s] 33%|███▎      | 238/731 [00:09<01:19,  6.22it/s] 33%|███▎      | 239/731 [00:09<01:17,  6.37it/s] 33%|███▎      | 240/731 [00:09<01:13,  6.64it/s] 33%|███▎      | 241/731 [00:09<01:11,  6.85it/s] 33%|███▎      | 242/731 [00:09<01:11,  6.88it/s] 33%|███▎      | 243/731 [00:09<01:08,  7.09it/s] 33%|███▎      | 244/731 [00:10<01:07,  7.23it/s] 34%|███▎      | 245/731 [00:10<01:05,  7.42it/s] 34%|███▎      | 246/731 [00:10<01:03,  7.67it/s] 34%|███▍      | 247/731 [00:10<01:01,  7.83it/s] 34%|███▍      | 248/731 [00:10<01:01,  7.86it/s] 34%|███▍      | 249/731 [00:10<01:00,  7.99it/s] 34%|███▍      | 250/731 [00:10<00:57,  8.35it/s] 34%|███▍      | 251/731 [00:10<00:55,  8.69it/s] 35%|███▍      | 253/731 [00:11<00:48,  9.93it/s] 35%|███▍      | 255/731 [00:11<00:44, 10.79it/s] 35%|███▌      | 257/731 [00:11<00:40, 11.74it/s] 35%|███▌      | 259/731 [00:11<00:37, 12.66it/s] 36%|███▌      | 261/731 [00:11<00:34, 13.67it/s] 36%|███▌      | 263/731 [00:11<00:32, 14.58it/s] 36%|███▋      | 265/731 [00:11<00:29, 15.70it/s] 37%|███▋      | 267/731 [00:11<00:28, 16.48it/s] 37%|███▋      | 269/731 [00:12<00:26, 17.26it/s] 37%|███▋      | 272/731 [00:12<00:25, 18.12it/s] 38%|███▊      | 275/731 [00:12<00:23, 19.07it/s] 38%|███▊      | 277/731 [00:12<00:23, 19.16it/s] 38%|███▊      | 280/731 [00:12<00:22, 19.86it/s] 39%|███▊      | 283/731 [00:12<00:22, 20.12it/s] 39%|███▉      | 286/731 [00:12<00:21, 20.54it/s] 40%|███▉      | 289/731 [00:13<00:42, 10.28it/s] 40%|███▉      | 291/731 [00:13<00:57,  7.63it/s] 40%|████      | 293/731 [00:14<00:55,  7.91it/s] 40%|████      | 295/731 [00:14<00:59,  7.29it/s] 40%|████      | 296/731 [00:14<01:02,  6.91it/s] 41%|████      | 297/731 [00:14<01:06,  6.56it/s] 41%|████      | 298/731 [00:15<01:10,  6.18it/s] 41%|████      | 299/731 [00:15<01:11,  6.01it/s] 41%|████      | 300/731 [00:15<01:21,  5.26it/s] 41%|████      | 301/731 [00:15<01:20,  5.33it/s] 41%|████▏     | 303/731 [00:15<01:06,  6.44it/s] 42%|████▏     | 304/731 [00:16<01:08,  6.23it/s] 42%|████▏     | 305/731 [00:16<01:09,  6.10it/s] 42%|████▏     | 306/731 [00:16<01:10,  6.06it/s] 42%|████▏     | 307/731 [00:16<01:09,  6.06it/s] 42%|████▏     | 308/731 [00:16<01:08,  6.18it/s] 42%|████▏     | 309/731 [00:16<01:07,  6.27it/s] 43%|████▎     | 311/731 [00:17<00:52,  7.99it/s] 43%|████▎     | 313/731 [00:17<00:40, 10.22it/s] 43%|████▎     | 315/731 [00:17<00:44,  9.33it/s] 43%|████▎     | 317/731 [00:17<00:50,  8.25it/s] 44%|████▎     | 319/731 [00:17<00:41,  9.99it/s] 44%|████▍     | 321/731 [00:18<00:37, 10.96it/s] 44%|████▍     | 323/731 [00:18<00:37, 10.92it/s] 44%|████▍     | 325/731 [00:18<00:39, 10.24it/s] 45%|████▍     | 327/731 [00:18<00:46,  8.75it/s] 45%|████▍     | 328/731 [00:18<00:47,  8.55it/s] 45%|████▌     | 329/731 [00:18<00:47,  8.55it/s] 45%|████▌     | 332/731 [00:19<00:33, 11.80it/s] 46%|████▌     | 334/731 [00:19<00:33, 11.92it/s] 46%|████▌     | 336/731 [00:19<00:48,  8.18it/s] 46%|████▌     | 338/731 [00:19<00:41,  9.51it/s] 47%|████▋     | 340/731 [00:20<00:41,  9.47it/s] 47%|████▋     | 342/731 [00:20<00:41,  9.44it/s] 47%|████▋     | 344/731 [00:20<00:42,  9.06it/s] 47%|████▋     | 346/731 [00:20<00:37, 10.14it/s] 48%|████▊     | 348/731 [00:20<00:34, 11.18it/s] 48%|████▊     | 350/731 [00:20<00:32, 11.87it/s] 48%|████▊     | 352/731 [00:21<00:33, 11.33it/s] 48%|████▊     | 354/731 [00:21<00:31, 12.13it/s] 49%|████▊     | 356/731 [00:21<00:30, 12.17it/s] 49%|████▉     | 358/731 [00:21<00:28, 12.92it/s] 49%|████▉     | 360/731 [00:21<00:28, 12.84it/s] 50%|████▉     | 362/731 [00:21<00:30, 12.15it/s] 50%|████▉     | 364/731 [00:22<00:32, 11.47it/s] 50%|█████     | 366/731 [00:22<00:30, 12.11it/s] 50%|█████     | 368/731 [00:22<00:30, 11.79it/s] 51%|█████     | 370/731 [00:22<00:33, 10.65it/s] 51%|█████     | 372/731 [00:22<00:33, 10.85it/s] 51%|█████     | 374/731 [00:23<00:31, 11.26it/s] 51%|█████▏    | 376/731 [00:23<00:30, 11.62it/s] 52%|█████▏    | 378/731 [00:23<00:29, 12.10it/s] 52%|█████▏    | 380/731 [00:23<00:26, 13.49it/s] 52%|█████▏    | 382/731 [00:23<00:24, 14.28it/s] 53%|█████▎    | 384/731 [00:23<00:25, 13.44it/s] 53%|█████▎    | 386/731 [00:23<00:27, 12.68it/s] 53%|█████▎    | 388/731 [00:24<00:27, 12.54it/s] 53%|█████▎    | 390/731 [00:24<00:27, 12.58it/s] 54%|█████▎    | 392/731 [00:24<00:24, 13.77it/s] 54%|█████▍    | 394/731 [00:24<00:23, 14.24it/s] 54%|█████▍    | 396/731 [00:24<00:23, 14.45it/s] 54%|█████▍    | 398/731 [00:24<00:25, 13.27it/s] 55%|█████▍    | 401/731 [00:24<00:22, 14.39it/s] 55%|█████▌    | 403/731 [00:25<00:22, 14.63it/s] 56%|█████▌    | 406/731 [00:25<00:18, 17.72it/s] 56%|█████▌    | 408/731 [00:25<00:19, 16.40it/s] 57%|█████▋    | 414/731 [00:25<00:12, 25.63it/s] 58%|█████▊    | 421/731 [00:25<00:08, 34.79it/s] 58%|█████▊    | 426/731 [00:25<00:07, 38.19it/s] 59%|█████▉    | 431/731 [00:25<00:10, 29.49it/s] 60%|█████▉    | 435/731 [00:26<00:11, 26.91it/s] 60%|██████    | 439/731 [00:26<00:11, 24.47it/s] 60%|██████    | 442/731 [00:26<00:12, 23.43it/s] 61%|██████    | 445/731 [00:26<00:11, 24.04it/s] 61%|██████▏   | 449/731 [00:26<00:10, 25.79it/s] 62%|██████▏   | 452/731 [00:26<00:11, 23.67it/s] 62%|██████▏   | 455/731 [00:27<00:12, 22.19it/s] 63%|██████▎   | 458/731 [00:27<00:12, 21.88it/s] 63%|██████▎   | 461/731 [00:27<00:12, 22.19it/s] 63%|██████▎   | 464/731 [00:27<00:11, 22.25it/s] 64%|██████▍   | 467/731 [00:27<00:12, 21.77it/s] 64%|██████▍   | 470/731 [00:27<00:11, 22.36it/s] 65%|██████▍   | 473/731 [00:27<00:11, 22.61it/s] 65%|██████▌   | 476/731 [00:27<00:11, 22.07it/s] 66%|██████▌   | 479/731 [00:28<00:11, 22.17it/s] 66%|██████▌   | 482/731 [00:28<00:11, 21.68it/s] 66%|██████▋   | 485/731 [00:28<00:11, 22.03it/s] 67%|██████▋   | 488/731 [00:28<00:10, 22.42it/s] 67%|██████▋   | 491/731 [00:28<00:11, 21.57it/s] 68%|██████▊   | 494/731 [00:28<00:11, 21.01it/s] 68%|██████▊   | 497/731 [00:28<00:11, 21.04it/s] 68%|██████▊   | 500/731 [00:29<00:10, 21.39it/s] 69%|██████▉   | 503/731 [00:29<00:10, 22.10it/s] 69%|██████▉   | 506/731 [00:29<00:10, 21.94it/s] 70%|██████▉   | 509/731 [00:29<00:10, 21.02it/s] 70%|███████   | 512/731 [00:29<00:10, 21.81it/s] 70%|███████   | 515/731 [00:29<00:09, 22.01it/s] 71%|███████   | 518/731 [00:29<00:09, 21.55it/s] 71%|███████▏  | 522/731 [00:30<00:08, 23.96it/s] 72%|███████▏  | 525/731 [00:30<00:08, 25.36it/s] 72%|███████▏  | 529/731 [00:30<00:07, 27.54it/s] 73%|███████▎  | 533/731 [00:30<00:06, 28.92it/s] 73%|███████▎  | 537/731 [00:30<00:06, 30.43it/s] 74%|███████▍  | 541/731 [00:30<00:06, 31.65it/s] 75%|███████▍  | 545/731 [00:30<00:05, 32.72it/s] 75%|███████▌  | 549/731 [00:30<00:05, 32.93it/s] 76%|███████▌  | 553/731 [00:30<00:05, 32.94it/s] 76%|███████▌  | 557/731 [00:31<00:05, 33.38it/s] 77%|███████▋  | 561/731 [00:31<00:05, 33.40it/s] 77%|███████▋  | 565/731 [00:31<00:04, 33.84it/s] 78%|███████▊  | 569/731 [00:31<00:04, 34.23it/s] 78%|███████▊  | 573/731 [00:31<00:04, 34.05it/s] 79%|███████▉  | 577/731 [00:31<00:04, 33.06it/s] 79%|███████▉  | 581/731 [00:31<00:04, 33.85it/s] 80%|████████  | 585/731 [00:31<00:04, 33.95it/s] 81%|████████  | 589/731 [00:32<00:04, 34.72it/s] 81%|████████  | 593/731 [00:32<00:03, 34.53it/s] 82%|████████▏ | 597/731 [00:32<00:03, 34.16it/s] 82%|████████▏ | 601/731 [00:32<00:03, 35.27it/s] 83%|████████▎ | 605/731 [00:32<00:03, 35.80it/s] 83%|████████▎ | 610/731 [00:32<00:03, 37.07it/s] 84%|████████▍ | 615/731 [00:32<00:02, 39.29it/s] 85%|████████▍ | 620/731 [00:32<00:02, 41.66it/s] 85%|████████▌ | 625/731 [00:32<00:02, 42.41it/s] 86%|████████▌ | 630/731 [00:33<00:03, 28.44it/s] 87%|████████▋ | 634/731 [00:33<00:03, 24.80it/s] 88%|████████▊ | 643/731 [00:33<00:02, 36.35it/s] 89%|████████▉ | 649/731 [00:33<00:02, 39.86it/s] 90%|█████████ | 659/731 [00:33<00:01, 50.78it/s] 91%|█████████▏| 668/731 [00:33<00:01, 58.05it/s] 92%|█████████▏| 675/731 [00:34<00:00, 58.56it/s] 93%|█████████▎| 682/731 [00:34<00:00, 59.97it/s] 95%|█████████▍| 691/731 [00:34<00:00, 67.54it/s] 96%|█████████▌| 699/731 [00:34<00:00, 66.23it/s] 97%|█████████▋| 707/731 [00:34<00:00, 63.48it/s] 98%|█████████▊| 714/731 [00:34<00:00, 53.22it/s] 99%|█████████▊| 721/731 [00:34<00:00, 54.04it/s] 99%|█████████▉| 727/731 [00:34<00:00, 55.10it/s]100%|██████████| 731/731 [00:35<00:00, 20.87it/s]
-  0%|          | 0/731 [00:00<?, ?it/s] 41%|████▏     | 303/731 [00:00<00:00, 3018.85it/s] 83%|████████▎ | 605/731 [00:00<00:00, 3006.13it/s]100%|██████████| 731/731 [00:00<00:00, 3023.03it/s]
+KeyError: '513950'
+ 77%|███████▋  | 587/759 [00:10<00:02, 80.21it/s]100%|██████████| 759/759 [00:10<00:00, 71.57it/s]
+  0%|          | 0/759 [00:00<?, ?it/s]  0%|          | 1/759 [00:00<03:06,  4.07it/s]  0%|          | 3/759 [00:00<02:27,  5.13it/s]  2%|▏         | 14/759 [00:00<00:28, 26.39it/s]  3%|▎         | 22/759 [00:00<00:22, 32.43it/s]  9%|▊         | 65/759 [00:01<00:07, 98.29it/s] 10%|█         | 76/759 [00:01<00:08, 85.35it/s] 14%|█▍        | 106/759 [00:02<00:12, 51.71it/s] 15%|█▌        | 114/759 [00:06<00:57, 11.16it/s] 16%|█▌        | 120/759 [00:06<00:58, 10.94it/s] 16%|█▋        | 124/759 [00:07<01:06,  9.51it/s] 20%|██        | 155/759 [00:09<00:46, 13.09it/s] 40%|███▉      | 301/759 [00:10<00:11, 40.10it/s] 90%|█████████ | 686/759 [00:11<00:00, 120.87it/s]100%|██████████| 759/759 [00:11<00:00, 64.08it/s] 
+  0%|          | 0/730 [00:00<?, ?it/s]  1%|          | 5/730 [00:00<00:15, 46.93it/s]  2%|▏         | 11/730 [00:00<00:14, 50.90it/s]  2%|▏         | 18/730 [00:00<00:12, 58.37it/s]  4%|▍         | 28/730 [00:00<00:09, 72.23it/s]  5%|▌         | 37/730 [00:00<00:09, 76.75it/s]  8%|▊         | 57/730 [00:00<00:05, 114.53it/s] 10%|█         | 73/730 [00:00<00:05, 121.77it/s] 12%|█▏        | 86/730 [00:01<00:08, 72.87it/s]  13%|█▎        | 96/730 [00:01<00:10, 59.52it/s] 14%|█▍        | 104/730 [00:01<00:12, 51.94it/s] 15%|█▌        | 111/730 [00:01<00:12, 48.31it/s] 16%|█▌        | 117/730 [00:01<00:13, 46.26it/s] 17%|█▋        | 123/730 [00:02<00:13, 45.54it/s] 18%|█▊        | 128/730 [00:02<00:13, 44.99it/s] 18%|█▊        | 133/730 [00:02<00:14, 42.53it/s] 19%|█▉        | 138/730 [00:02<00:13, 43.09it/s] 20%|█▉        | 144/730 [00:02<00:13, 42.69it/s] 20%|██        | 149/730 [00:02<00:17, 33.82it/s] 21%|██        | 153/730 [00:02<00:19, 29.90it/s] 22%|██▏       | 157/730 [00:03<00:20, 28.30it/s] 22%|██▏       | 160/730 [00:03<00:20, 27.69it/s] 22%|██▏       | 163/730 [00:03<00:20, 27.55it/s] 23%|██▎       | 167/730 [00:03<00:19, 28.23it/s] 23%|██▎       | 171/730 [00:03<00:19, 28.97it/s] 24%|██▍       | 175/730 [00:03<00:19, 29.14it/s] 24%|██▍       | 178/730 [00:03<00:19, 28.80it/s] 25%|██▍       | 182/730 [00:04<00:18, 29.22it/s] 25%|██▌       | 186/730 [00:04<00:17, 30.26it/s] 26%|██▌       | 190/730 [00:04<00:17, 30.24it/s] 27%|██▋       | 194/730 [00:04<00:17, 29.98it/s] 27%|██▋       | 198/730 [00:04<00:17, 30.51it/s] 28%|██▊       | 202/730 [00:04<00:16, 31.14it/s] 28%|██▊       | 206/730 [00:04<00:16, 30.97it/s] 29%|██▉       | 210/730 [00:04<00:16, 31.81it/s] 29%|██▉       | 214/730 [00:05<00:15, 32.87it/s] 30%|██▉       | 218/730 [00:05<00:46, 11.04it/s] 30%|███       | 221/730 [00:06<00:57,  8.85it/s] 31%|███       | 223/730 [00:06<01:03,  8.01it/s] 31%|███       | 225/730 [00:07<01:08,  7.33it/s] 31%|███       | 227/730 [00:07<01:12,  6.94it/s] 31%|███▏      | 229/730 [00:07<01:15,  6.66it/s] 32%|███▏      | 230/730 [00:08<01:16,  6.57it/s] 32%|███▏      | 231/730 [00:08<01:16,  6.56it/s] 32%|███▏      | 232/730 [00:08<01:16,  6.51it/s] 32%|███▏      | 233/730 [00:08<01:16,  6.52it/s] 32%|███▏      | 234/730 [00:08<01:15,  6.56it/s] 32%|███▏      | 235/730 [00:08<01:15,  6.56it/s] 32%|███▏      | 236/730 [00:08<01:14,  6.59it/s] 32%|███▏      | 237/730 [00:09<01:14,  6.60it/s] 33%|███▎      | 238/730 [00:09<01:13,  6.67it/s] 33%|███▎      | 239/730 [00:09<01:12,  6.75it/s] 33%|███▎      | 240/730 [00:09<01:10,  6.96it/s] 33%|███▎      | 241/730 [00:09<01:08,  7.12it/s] 33%|███▎      | 242/730 [00:09<01:07,  7.25it/s] 33%|███▎      | 243/730 [00:09<01:05,  7.39it/s] 33%|███▎      | 244/730 [00:10<01:04,  7.49it/s] 34%|███▎      | 245/730 [00:10<01:03,  7.64it/s] 34%|███▎      | 246/730 [00:10<01:01,  7.88it/s] 34%|███▍      | 247/730 [00:10<01:00,  8.02it/s] 34%|███▍      | 248/730 [00:10<00:59,  8.14it/s] 34%|███▍      | 249/730 [00:10<00:58,  8.17it/s] 34%|███▍      | 250/730 [00:10<00:56,  8.49it/s] 34%|███▍      | 251/730 [00:10<00:54,  8.73it/s] 35%|███▍      | 253/730 [00:11<00:48,  9.84it/s] 35%|███▍      | 255/730 [00:11<00:44, 10.62it/s] 35%|███▌      | 257/730 [00:11<00:41, 11.52it/s] 35%|███▌      | 259/730 [00:11<00:38, 12.38it/s] 36%|███▌      | 261/730 [00:11<00:34, 13.42it/s] 36%|███▌      | 263/730 [00:11<00:32, 14.33it/s] 36%|███▋      | 265/730 [00:11<00:30, 15.47it/s] 37%|███▋      | 267/730 [00:11<00:28, 16.28it/s] 37%|███▋      | 269/730 [00:12<00:26, 17.12it/s] 37%|███▋      | 271/730 [00:12<00:25, 17.83it/s] 37%|███▋      | 273/730 [00:12<00:24, 18.34it/s] 38%|███▊      | 276/730 [00:12<00:23, 18.99it/s] 38%|███▊      | 279/730 [00:12<00:22, 19.66it/s] 39%|███▊      | 282/730 [00:12<00:22, 19.93it/s] 39%|███▉      | 285/730 [00:12<00:21, 20.44it/s] 39%|███▉      | 288/730 [00:13<00:44, 10.04it/s] 40%|███▉      | 290/730 [00:13<00:59,  7.39it/s] 40%|████      | 292/730 [00:14<00:57,  7.65it/s] 40%|████      | 294/730 [00:14<01:01,  7.05it/s] 40%|████      | 295/730 [00:14<01:05,  6.65it/s] 41%|████      | 296/730 [00:14<01:08,  6.34it/s] 41%|████      | 297/730 [00:15<01:12,  5.99it/s] 41%|████      | 298/730 [00:15<01:14,  5.82it/s] 41%|████      | 299/730 [00:15<01:23,  5.14it/s] 41%|████      | 300/730 [00:15<01:22,  5.20it/s] 41%|████▏     | 302/730 [00:15<01:09,  6.20it/s] 42%|████▏     | 303/730 [00:16<01:11,  6.01it/s] 42%|████▏     | 304/730 [00:16<01:12,  5.90it/s] 42%|████▏     | 305/730 [00:16<01:12,  5.88it/s] 42%|████▏     | 306/730 [00:16<01:11,  5.89it/s] 42%|████▏     | 307/730 [00:16<01:10,  6.02it/s] 42%|████▏     | 308/730 [00:17<01:09,  6.09it/s] 42%|████▏     | 310/730 [00:17<00:54,  7.69it/s] 43%|████▎     | 312/730 [00:17<00:42,  9.82it/s] 43%|████▎     | 314/730 [00:17<00:46,  8.94it/s] 43%|████▎     | 315/730 [00:17<00:50,  8.28it/s] 43%|████▎     | 316/730 [00:17<00:53,  7.81it/s] 44%|████▎     | 318/730 [00:17<00:41,  9.93it/s] 44%|████▍     | 320/730 [00:18<00:37, 10.95it/s] 44%|████▍     | 322/730 [00:18<00:38, 10.70it/s] 44%|████▍     | 324/730 [00:18<00:40, 10.03it/s] 45%|████▍     | 326/730 [00:18<00:47,  8.49it/s] 45%|████▍     | 327/730 [00:19<00:48,  8.32it/s] 45%|████▍     | 328/730 [00:19<00:48,  8.27it/s] 45%|████▌     | 331/730 [00:19<00:34, 11.43it/s] 46%|████▌     | 333/730 [00:19<00:34, 11.56it/s] 46%|████▌     | 335/730 [00:19<00:49,  8.02it/s] 46%|████▌     | 337/730 [00:20<00:42,  9.32it/s] 46%|████▋     | 339/730 [00:20<00:42,  9.27it/s] 47%|████▋     | 341/730 [00:20<00:41,  9.28it/s] 47%|████▋     | 343/730 [00:20<00:43,  8.95it/s] 47%|████▋     | 345/730 [00:20<00:38, 10.03it/s] 48%|████▊     | 347/730 [00:20<00:34, 11.05it/s] 48%|████▊     | 349/730 [00:21<00:32, 11.85it/s] 48%|████▊     | 351/730 [00:21<00:33, 11.39it/s] 48%|████▊     | 353/730 [00:21<00:30, 12.24it/s] 49%|████▊     | 355/730 [00:21<00:30, 12.34it/s] 49%|████▉     | 357/730 [00:21<00:28, 13.11it/s] 49%|████▉     | 359/730 [00:21<00:28, 13.12it/s] 49%|████▉     | 361/730 [00:22<00:29, 12.46it/s] 50%|████▉     | 363/730 [00:22<00:31, 11.67it/s] 50%|█████     | 365/730 [00:22<00:29, 12.24it/s] 50%|█████     | 367/730 [00:22<00:30, 11.83it/s] 51%|█████     | 369/730 [00:22<00:33, 10.67it/s] 51%|█████     | 371/730 [00:22<00:33, 10.79it/s] 51%|█████     | 373/730 [00:23<00:31, 11.16it/s] 51%|█████▏    | 375/730 [00:23<00:30, 11.45it/s] 52%|█████▏    | 377/730 [00:23<00:29, 11.99it/s] 52%|█████▏    | 379/730 [00:23<00:26, 13.36it/s] 52%|█████▏    | 381/730 [00:23<00:24, 14.17it/s] 52%|█████▏    | 383/730 [00:23<00:26, 13.28it/s] 53%|█████▎    | 385/730 [00:24<00:27, 12.60it/s] 53%|█████▎    | 387/730 [00:24<00:27, 12.37it/s] 53%|█████▎    | 389/730 [00:24<00:27, 12.28it/s] 54%|█████▎    | 391/730 [00:24<00:25, 13.33it/s] 54%|█████▍    | 393/730 [00:24<00:24, 13.78it/s] 54%|█████▍    | 395/730 [00:24<00:24, 13.95it/s] 54%|█████▍    | 397/730 [00:24<00:26, 12.78it/s] 55%|█████▍    | 400/730 [00:25<00:23, 13.98it/s] 55%|█████▌    | 402/730 [00:25<00:23, 14.23it/s] 55%|█████▌    | 405/730 [00:25<00:18, 17.21it/s] 56%|█████▌    | 407/730 [00:25<00:20, 15.91it/s] 57%|█████▋    | 413/730 [00:25<00:12, 24.91it/s] 58%|█████▊    | 420/730 [00:25<00:09, 33.86it/s] 58%|█████▊    | 425/730 [00:25<00:08, 37.22it/s] 59%|█████▉    | 429/730 [00:26<00:11, 27.16it/s] 59%|█████▉    | 433/730 [00:26<00:11, 25.21it/s] 60%|█████▉    | 436/730 [00:26<00:12, 23.25it/s] 60%|██████    | 439/730 [00:26<00:11, 24.35it/s] 61%|██████    | 442/730 [00:26<00:11, 25.25it/s] 61%|██████    | 446/730 [00:26<00:10, 27.21it/s] 62%|██████▏   | 449/730 [00:26<00:11, 24.92it/s] 62%|██████▏   | 452/730 [00:27<00:12, 23.12it/s] 62%|██████▏   | 455/730 [00:27<00:12, 22.13it/s] 63%|██████▎   | 458/730 [00:27<00:12, 21.85it/s] 63%|██████▎   | 461/730 [00:27<00:12, 22.08it/s] 64%|██████▎   | 464/730 [00:27<00:12, 21.98it/s] 64%|██████▍   | 467/730 [00:27<00:12, 21.43it/s] 64%|██████▍   | 470/730 [00:27<00:11, 22.35it/s] 65%|██████▍   | 473/730 [00:28<00:11, 22.34it/s] 65%|██████▌   | 476/730 [00:28<00:11, 21.68it/s] 66%|██████▌   | 479/730 [00:28<00:11, 21.00it/s] 66%|██████▌   | 482/730 [00:28<00:11, 21.31it/s] 66%|██████▋   | 485/730 [00:28<00:11, 21.53it/s] 67%|██████▋   | 488/730 [00:28<00:11, 21.25it/s] 67%|██████▋   | 491/730 [00:28<00:11, 20.70it/s] 68%|██████▊   | 494/730 [00:29<00:11, 20.27it/s] 68%|██████▊   | 497/730 [00:29<00:11, 20.45it/s] 68%|██████▊   | 500/730 [00:29<00:10, 21.17it/s] 69%|██████▉   | 503/730 [00:29<00:10, 21.85it/s] 69%|██████▉   | 506/730 [00:29<00:10, 21.03it/s] 70%|██████▉   | 509/730 [00:29<00:10, 20.31it/s] 70%|███████   | 512/730 [00:29<00:10, 21.32it/s] 71%|███████   | 515/730 [00:30<00:10, 21.34it/s] 71%|███████   | 518/730 [00:30<00:09, 21.59it/s] 71%|███████▏  | 521/730 [00:30<00:08, 23.47it/s] 72%|███████▏  | 524/730 [00:30<00:08, 24.90it/s] 72%|███████▏  | 528/730 [00:30<00:07, 26.38it/s] 73%|███████▎  | 532/730 [00:30<00:07, 28.09it/s] 73%|███████▎  | 536/730 [00:30<00:06, 29.96it/s] 74%|███████▍  | 540/730 [00:30<00:06, 31.30it/s] 75%|███████▍  | 544/730 [00:31<00:05, 32.35it/s] 75%|███████▌  | 548/730 [00:31<00:05, 32.66it/s] 76%|███████▌  | 552/730 [00:31<00:05, 32.60it/s] 76%|███████▌  | 556/730 [00:31<00:05, 32.81it/s] 77%|███████▋  | 560/730 [00:31<00:05, 32.63it/s] 77%|███████▋  | 564/730 [00:31<00:05, 32.99it/s] 78%|███████▊  | 568/730 [00:31<00:04, 33.62it/s] 78%|███████▊  | 572/730 [00:31<00:04, 34.13it/s] 79%|███████▉  | 576/730 [00:32<00:04, 33.31it/s] 79%|███████▉  | 580/730 [00:32<00:04, 33.94it/s] 80%|████████  | 584/730 [00:32<00:04, 33.72it/s] 81%|████████  | 588/730 [00:32<00:04, 34.27it/s] 81%|████████  | 592/730 [00:32<00:04, 33.65it/s] 82%|████████▏ | 596/730 [00:32<00:04, 32.85it/s] 82%|████████▏ | 600/730 [00:32<00:03, 33.70it/s] 83%|████████▎ | 604/730 [00:32<00:03, 34.12it/s] 83%|████████▎ | 608/730 [00:32<00:03, 35.63it/s] 84%|████████▍ | 612/730 [00:33<00:03, 35.88it/s] 85%|████████▍ | 617/730 [00:33<00:02, 39.63it/s] 85%|████████▌ | 622/730 [00:33<00:02, 41.87it/s] 86%|████████▌ | 627/730 [00:33<00:03, 28.76it/s] 86%|████████▋ | 631/730 [00:33<00:04, 22.86it/s] 87%|████████▋ | 638/730 [00:33<00:02, 31.29it/s] 88%|████████▊ | 645/730 [00:34<00:02, 38.51it/s] 89%|████████▉ | 653/730 [00:34<00:01, 47.43it/s] 91%|█████████ | 661/730 [00:34<00:01, 54.52it/s] 92%|█████████▏| 668/730 [00:34<00:01, 54.46it/s] 92%|█████████▏| 675/730 [00:34<00:00, 58.03it/s] 93%|█████████▎| 682/730 [00:34<00:00, 57.78it/s] 95%|█████████▍| 691/730 [00:34<00:00, 63.57it/s] 96%|█████████▌| 698/730 [00:34<00:00, 63.36it/s] 97%|█████████▋| 705/730 [00:34<00:00, 64.36it/s] 98%|█████████▊| 712/730 [00:35<00:00, 50.42it/s] 98%|█████████▊| 718/730 [00:35<00:00, 51.00it/s] 99%|█████████▉| 724/730 [00:35<00:00, 52.40it/s]100%|██████████| 730/730 [00:35<00:00, 50.19it/s]100%|██████████| 730/730 [00:35<00:00, 20.57it/s]
+  0%|          | 0/730 [00:00<?, ?it/s] 42%|████▏     | 307/730 [00:00<00:00, 3067.79it/s] 85%|████████▌ | 621/730 [00:00<00:00, 3107.43it/s]100%|██████████| 730/730 [00:00<00:00, 3117.21it/s]
 Traceback (most recent call last):
   File "/mnt/d/workspace/qtrade2/QQEmailSender.py", line 25, in send
     smtpObj.sendmail(self.sender, self.receivers, message.as_string())
@@ -177,4 +183,4 @@ Traceback (most recent call last):
     raise SMTPDataError(code, resp)
 smtplib.SMTPDataError: (550, b'The "From" header is missing or invalid. Please follow RFC5322, RFC2047, RFC822 standard protocol. https://service.mail.qq.com/detail/124/995.')
 邮件发送失败
-90.10110592842102
+94.71480941772461
