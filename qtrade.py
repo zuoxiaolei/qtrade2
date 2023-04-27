@@ -1,62 +1,14 @@
-import re
 from datetime import datetime
-
-import joblib
-import lightgbm
-import numpy as np
 import psutil
 import pytz
-import requests
-from sklearn.metrics import classification_report
-from StockData import StockData
-from QQEmailSender import Mail
 import time
-
 import pandas as pd
-import akshare as ak
-import retrying
-from concurrent.futures import ThreadPoolExecutor
 import tqdm
-from pyspark.sql.types import DoubleType, IntegerType, StringType, StructField, StructType
-from pyspark.sql import SparkSession
-from scipy.stats import norm
 
-data_path = 'data/stock_data/'
 cpu_count = psutil.cpu_count()
 windows = 110
-headers = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}
-
-
-@retrying.retry(stop_max_attempt_number=10, stop_max_delay=10000)
-def get_fund_scale(code="159819"):
-    url = f"https://fund.eastmoney.com/{code}.html"
-    resp = requests.get(url, headers=headers)
-    resp.encoding = resp.apparent_encoding
-    scale = re.findall("基金规模</a>：(.*?)亿元", resp.text)[0].strip()
-    return code, float(scale)
-
-
-def get_fund_scale2(code="159819"):
-    try:
-        return get_fund_scale(code)
-    except:
-        None
-
-
-def get_all_fund_scale():
-    fund_etf_fund_daily_em_df = ak.fund_etf_fund_daily_em()
-    codes = fund_etf_fund_daily_em_df["基金代码"].tolist()
-    with ThreadPoolExecutor(100) as executor:
-        fund_scale = list(tqdm.tqdm(executor.map(get_fund_scale2, codes), total=len(codes)))
-    fund_scale = [ele for ele in fund_scale if ele]
-    fund_scale = pd.DataFrame(fund_scale, columns=['code', 'scale'])
-    fund_scale_old = pd.read_csv("data/dim/scale.csv")
-    fund_scale_old["code"] = fund_scale_old["code"].map(str)
-    fund_scale_merge = pd.concat([fund_scale, fund_scale_old], axis=0)
-    fund_scale_merge = fund_scale_merge.drop_duplicates(subset=["code"])
-    fund_scale_merge = fund_scale_merge.sort_values(by=["scale", "code"], ascending=False)
-    fund_scale_merge.to_csv("data/dim/scale.csv", index=False)
+qdata_prefix = "https://raw.githubusercontent.com/zuoxiaolei/qdata/main/data/"
+github_proxy_prefix = "https://ghproxy.com/"
 
 
 def cal_continue_down(df, cnt=5, future=1):
@@ -78,7 +30,7 @@ def cal_continue_down(df, cnt=5, future=1):
     return result
 
 
-def buy_down_strategy_history(stock_dfs):
+def buy_down_strategy_history(stock_dfs, scale_df):
     history_data = []
     for code, df in tqdm.tqdm(list(stock_dfs.items())):
         df["is_up"] = (df['close'] - df['close'].shift(1)) > 0
@@ -90,8 +42,6 @@ def buy_down_strategy_history(stock_dfs):
     history_data["success_rate"] = history_data.groupby("code")["increase_rate"].transform(
         lambda x: (x > 0).sum() / len(x))
     history_data = history_data.sort_values(by=['code', 'date'])
-    scale_df = pd.read_csv("data/dim/scale.csv")
-    scale_df["code"] = scale_df["code"].map(str)
     history_data = history_data.merge(scale_df, on="code", how="left")
     history_data.to_csv("data/ads/history_data.csv", index=False)
     return history_data
@@ -112,20 +62,16 @@ def write_table(title, columns, df):
 
 def run_continue_down_strategy():
     start_time = time.time()
-    s = StockData()
-    s.update_date()
-    stock_dfs = s.get_all_data()
-    get_all_fund_scale()
-    buy_down_strategy_history(stock_dfs)
-    history_df = pd.read_csv("data/ads/history_data.csv")
-    scale_df = pd.read_csv("data/dim/scale.csv")
-    scale_df["code"] = scale_df["code"].map(str)
-    history_df.code = history_df.code.map(str)
+    stock_df = pd.read_csv(qdata_prefix + "ads/exchang_fund_rt.csv", dtype={"code": object})
+    history_df = pd.read_csv("data/ads/history_data.csv", dtype={"code": object})
+    scale_df = pd.read_csv(qdata_prefix + "dim/scale.csv", dtype={"code": object})
+    stock_dfs = {k: v for k, v in stock_df.groupby("code", as_index=False)}
+    buy_down_strategy_history(stock_dfs, scale_df)
     history_df = history_df[history_df.success_rate >= 0.6]
     buy_down_strategy_list = dict(history_df[['code', 'success_rate']].values.tolist())
     success_rate_mapping = dict(history_df[['code', 'success_rate']].values.tolist())
     buy_stocks = []
-    fund_etf_fund_daily_em_df = ak.fund_etf_fund_daily_em()
+    fund_etf_fund_daily_em_df = pd.read_csv(qdata_prefix + "dim/exchang_eft_basic_info.csv", dtype={'基金代码': object})
     stock_name_map = dict(fund_etf_fund_daily_em_df[['基金代码', '基金简称']].values.tolist())
     for code, df in tqdm.tqdm(list(stock_dfs.items())):
         df["is_up"] = (df['close'] - df['close'].shift(1)) > 0
@@ -135,9 +81,6 @@ def run_continue_down_strategy():
                                stock_name_map[code]])
     string = ""
     if buy_stocks:
-        mail = Mail()
-        messages = [f"{ele[0]}\t{ele[2]}" for ele in buy_stocks]
-        mail.send('\n'.join(messages))
         buy_stocks = pd.DataFrame(buy_stocks, columns=['code', 'date', 'name'])
         buy_stocks = buy_stocks.merge(scale_df, on="code", how='left')
         buy_stocks = buy_stocks.sort_values(by="scale", ascending=False)
@@ -154,4 +97,6 @@ def run_continue_down_strategy():
 
 
 if __name__ == '__main__':
+    start_time = time.time()
     run_continue_down_strategy()
+    print(f"qtrade cost {time.time() - start_time} second")

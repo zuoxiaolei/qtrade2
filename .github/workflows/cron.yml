@@ -5,7 +5,7 @@ name: Run every hour
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
   
 
@@ -32,5 +32,5 @@ jobs:
           python run.py
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: auto update README.md
+          commit_message: auto update
 
