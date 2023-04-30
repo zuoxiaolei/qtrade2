@@ -4,7 +4,7 @@ numpy
 scipy
 matplotlib
 tqdm
-joblib
+joblib=1.2.0
 psutil
 pyspark==3.3.2
 pyarrow
