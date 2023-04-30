@@ -8,3 +8,4 @@ joblib==1.2.0
 psutil
 pyspark==3.3.2
 pyarrow
+lightgbm==3.1.1
