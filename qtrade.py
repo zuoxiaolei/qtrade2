@@ -14,6 +14,7 @@ cpu_count = psutil.cpu_count()
 windows = 110
 qdata_prefix = "https://raw.githubusercontent.com/zuoxiaolei/qdata/main/data/"
 github_proxy_prefix = "https://ghproxy.com/"
+sequence_length = 10
 
 
 def load_spark_sql():
@@ -44,6 +45,9 @@ def get_spark():
     return spark
 
 
+spark = get_spark()
+
+
 def process_data(is_local=False):
     stock_df_filename = qdata_prefix + "ads/exchang_fund_rt.csv"
     scale_df_filename = qdata_prefix + "dim/scale.csv"
@@ -61,7 +65,6 @@ def process_data(is_local=False):
     fund_etf_fund_daily_em_df.columns = ['code', 'name']
     stock_cnt = pd.read_csv(stock_cnt_filename, dtype={"code": object})
 
-    spark = get_spark()
     df = spark.createDataFrame(stock_df)
     scale_df = spark.createDataFrame(scale_df)
     fund_etf_fund_daily_em_df = spark.createDataFrame(fund_etf_fund_daily_em_df)
@@ -111,6 +114,57 @@ def write_table(title, columns, df):
     return string
 
 
+def get_pattern():
+    '''生成涨跌的pattern'''
+    patterns = []
+    for i in range(1, sequence_length + 1):
+        total = 2 ** i
+        for j in range(total):
+            temp = bin(j).replace("0b", "")
+            temp = [int(ele) for ele in temp]
+            if len(temp) == i:
+                temp = [None] * (sequence_length - len(temp)) + temp
+                patterns.append(temp[::-1])
+    return patterns
+
+
+def run_qtrade3(is_local=False):
+    stock_df_filename = qdata_prefix + "ads/exchang_fund_rt.csv"
+    scale_df_filename = qdata_prefix + "dim/scale.csv"
+    fund_etf_fund_daily_em_df_filename = qdata_prefix + "dim/exchang_eft_basic_info.csv"
+    if is_local:
+        stock_df_filename = "data/ads/exchang_fund_rt.csv"
+        scale_df_filename = "data/dim/scale.csv"
+        fund_etf_fund_daily_em_df_filename = "data/dim/exchang_eft_basic_info.csv"
+    stock_df = pd.read_csv(stock_df_filename, dtype={"code": object})
+    scale_df = pd.read_csv(scale_df_filename, dtype={"code": object})
+    fund_etf_fund_daily_em_df = pd.read_csv(fund_etf_fund_daily_em_df_filename, dtype={'基金代码': object})
+    fund_etf_fund_daily_em_df = fund_etf_fund_daily_em_df[['基金代码', '基金简称']]
+    fund_etf_fund_daily_em_df.columns = ['code', 'name']
+
+    df = spark.createDataFrame(stock_df)
+    scale_df = spark.createDataFrame(scale_df)
+    fund_etf_fund_daily_em_df = spark.createDataFrame(fund_etf_fund_daily_em_df)
+    df.createOrReplaceTempView("df")
+    scale_df.createOrReplaceTempView("scale_df")
+    fund_etf_fund_daily_em_df.createOrReplaceTempView("fund_etf_fund_daily_em_df")
+    pattern = get_pattern()
+    columns = [f"pattern{ele + 1}" for ele in range(sequence_length)]
+    pattern = spark.createDataFrame(pattern, schema=columns)
+    pattern.createOrReplaceTempView("pattern")
+    result = spark.sql(spark_sql[2])
+    result_df = result.toPandas()
+    result_df.to_csv("data/ads/history_data2.csv")
+    result_df = result_df[result_df.date == result_df.date.max()]
+    string = ""
+    if len(result_df):
+        tz = pytz.timezone('Asia/Shanghai')
+        now = datetime.now(tz).strftime("%Y%m%d")
+        title = "# {} qtrade3".format(now)
+        string = write_table(title, result_df.columns.tolist(), result_df)
+    return string
+
+
 def run_down_buy_strategy(is_local=False):
     buy_stocks = process_data(is_local=is_local)
     buy_stocks = buy_stocks.sort_values(["code", "date"])
@@ -128,14 +182,23 @@ def run_down_buy_strategy(is_local=False):
         buy_stocks = buy_stocks.sort_values(by="scale", ascending=False)
         tz = pytz.timezone('Asia/Shanghai')
         now = datetime.now(tz).strftime("%Y%m%d")
-        title = "# {}".format(now)
+        title = "# {} qtrade2".format(now)
         string = write_table(title, buy_stocks.columns.tolist(), buy_stocks)
-
+    qtrade3_result = run_qtrade3(is_local)
     with open("qtrade.md", "w", encoding="utf-8") as fh:
-        fh.write(string)
+        fh.write(string + "\n" + qtrade3_result)
+
+
+def get_profit():
+    df = pd.read_csv("temp.csv")
+    df = df.sort_values(by=["date", "scale"], ascending=[False, False])
+    df = df.groupby("date").head(1)
+    df["year"] = df["date"].map(lambda x: x[:4])
+    print(df.groupby("year")["profit"].sum())
 
 
 if __name__ == '__main__':
     start_time = time.time()
-    run_down_buy_strategy()
+    is_local = False
+    run_down_buy_strategy(is_local)
     print(f"run_down_buy_strategy cost {time.time() - start_time} second")
