@@ -166,35 +166,20 @@ def run_qtrade3(is_local=False):
 
 
 def run_down_buy_strategy(is_local=False):
-    buy_stocks = process_data(is_local=is_local)
-    buy_stocks = buy_stocks.sort_values(["code", "date"])
-    model = joblib.load("data/stock_lightgbm.model")
-    featurs_col = ['scale', 'success_rate', 'rate_1',
-                   'rate_2', 'rate_3', 'rate_4', 'rate_5', 'rate_6', 'code_cnt', 'rate_sum', 'increase_cnt',
-                   'decrease_cnt', 'increase_rate']
-    buy_stocks["pred"] = model.predict(buy_stocks[featurs_col])
-    buy_stocks = buy_stocks["code,name,date,scale,profit,success_rate,pred".split(",")]
-    buy_stocks.to_csv("data/ads/history_data.csv", index=False)
-    buy_stocks = buy_stocks[buy_stocks.date == buy_stocks.date.max()]
-
     string = ""
-    if len(buy_stocks):
-        buy_stocks = buy_stocks.sort_values(by="scale", ascending=False)
-        tz = pytz.timezone('Asia/Shanghai')
-        now = datetime.now(tz).strftime("%Y%m%d")
-        title = "# {} qtrade2".format(now)
-        string = write_table(title, buy_stocks.columns.tolist(), buy_stocks)
     qtrade3_result = run_qtrade3(is_local)
     with open("qtrade.md", "w", encoding="utf-8") as fh:
         fh.write(string + "\n" + qtrade3_result)
 
 
 def get_profit():
-    df = pd.read_csv("temp.csv")
+    df = pd.read_csv("data/ads/history_data2.csv")
     df = df.sort_values(by=["date", "scale"], ascending=[False, False])
     df = df.groupby("date").head(1)
     df["year"] = df["date"].map(lambda x: x[:4])
-    print(df.groupby("year")["profit"].sum())
+    profit = df.groupby("year")["profit"].sum()
+    print(profit)
+    return profit[-1]
 
 
 if __name__ == '__main__':

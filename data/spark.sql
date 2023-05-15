@@ -231,6 +231,6 @@ from (select code,
                      join pattern t2
                           on 1 = 1) t
       where flag = 0) t
-where success_cnt / fund_cnt>=0.8 and fund_cnt>=5 and scale>=10
+where success_cnt / fund_cnt>=0.83 and fund_cnt>=12 and scale>=10
 order by date desc, scale desc, pattern
 ;
