@@ -168,8 +168,8 @@ from (select code,
              scale,
              profit,
              pattern,
-             count(1) over (partition by pattern, code order by date)                       fund_cnt,
-             count(if(profit > 0, 1, null)) over (partition by pattern, code order by date) success_cnt
+             count(1) over (partition by pattern, code)                       fund_cnt,
+             count(if(profit > 0, 1, null)) over (partition by pattern, code) success_cnt
       from (select code,
                    name,
                    date,
