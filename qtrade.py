@@ -15,6 +15,7 @@ windows = 110
 qdata_prefix = "https://raw.githubusercontent.com/zuoxiaolei/qdata/main/data/"
 github_proxy_prefix = "https://ghproxy.com/"
 sequence_length = 10
+seq_length = 30
 
 
 def load_spark_sql():
@@ -180,6 +181,81 @@ def get_profit():
     profit = df.groupby("year")["profit"].sum()
     print(profit)
     return profit[-1]
+
+
+def get_train_pattern(increase_flag, flag):
+    data = {}
+    result = []
+    for i in range(seq_length, len(increase_flag)):
+        for j in range(1, seq_length):
+            pattern = ''.join(increase_flag[(i - j):i][::-1])
+            if pattern not in data:
+                data[pattern] = [flag[i - 1]]
+            else:
+                data[pattern].append(flag[i - 1])
+    for k, v in data.items():
+        rate = len([ele for ele in v if ele > 0]) / len(v)
+        if len(v) >= 12 and rate >= 0.83:
+            result.append([k, rate])
+    return result
+
+
+def get_train_result(df_full):
+    train_data = []
+    codes = df_full.code.unique().tolist()
+    for code in codes:
+        df = df_full[df_full.code == code]
+        df.loc[:, 'increase_rate'] = df.loc[:, 'close'] / df.loc[:, 'close'].shift(1) - 1
+        df.loc[:, 'increase_flag'] = df.loc[:, 'increase_rate'].map(lambda x: 1 if x > 0 else 0).map(str)
+        df.loc[:, 'ahead1'] = df.loc[:, 'close'].shift(-1) / df.loc[:, 'close'] - 1
+        df.loc[:, 'ahead2'] = df.loc[:, 'close'].shift(-2) / df.loc[:, 'close'] - 1
+        df.loc[:, 'flag'] = df.apply(lambda x: 1 if (x['ahead1'] if x['ahead1'] > 0 else x['ahead2']) > 0 else 0,
+                                     axis=1)
+        df = df.dropna()
+        increase_flag = df.loc[:, 'increase_flag'].tolist()
+        flag = df['flag'].tolist()
+        patterns_rate = get_train_pattern(increase_flag, flag)
+        for pattern, rate in patterns_rate:
+            pattern = [int(ele) for ele in pattern] + [None] * (seq_length - len(pattern))
+            train_data.append([code, *pattern, rate])
+    columns = [f"pattern{ele + 1}" for ele in range(seq_length)]
+    train_data = pd.DataFrame(train_data, columns=['code', *columns, 'success_rate'])
+    return train_data
+
+
+def run_qtrade4():
+    df = pd.read_csv("data/ads/exchang_fund_rt.csv", dtype={'code': object})
+    stock_patterns = get_train_result(df)
+    stock_df_filename = "data/ads/exchang_fund_rt.csv"
+    scale_df_filename = "data/dim/scale.csv"
+    fund_etf_fund_daily_em_df_filename = "data/dim/exchang_eft_basic_info.csv"
+    stock_df = pd.read_csv(stock_df_filename, dtype={"code": object})
+    scale_df = pd.read_csv(scale_df_filename, dtype={"code": object})
+    fund_etf_fund_daily_em_df = pd.read_csv(fund_etf_fund_daily_em_df_filename, dtype={'基金代码': object})
+    fund_etf_fund_daily_em_df = fund_etf_fund_daily_em_df[['基金代码', '基金简称']]
+    fund_etf_fund_daily_em_df.columns = ['code', 'name']
+
+    stock_patterns = spark.createDataFrame(stock_patterns)
+    df = spark.createDataFrame(stock_df)
+    scale_df = spark.createDataFrame(scale_df)
+    fund_etf_fund_daily_em_df = spark.createDataFrame(fund_etf_fund_daily_em_df)
+
+    df.createOrReplaceTempView("df")
+    scale_df.createOrReplaceTempView("scale_df")
+    fund_etf_fund_daily_em_df.createOrReplaceTempView("fund_etf_fund_daily_em_df")
+    stock_patterns.createOrReplaceTempView("stock_patterns")
+
+    result = spark.sql(spark_sql[3])
+    result_df = result.toPandas()
+    result_df.to_csv("data/ads/history_data4.csv", index=False)
+    result_df = result_df[result_df.date == result_df.date.max()]
+    string = ""
+    if len(result_df):
+        tz = pytz.timezone('Asia/Shanghai')
+        now = datetime.now(tz).strftime("%Y%m%d")
+        title = "# {} qtrade4".format(now)
+        string = write_table(title, result_df.columns.tolist(), result_df)
+    print(string)
 
 
 if __name__ == '__main__':
