@@ -9,6 +9,8 @@ import time
 import pandas as pd
 from pyspark.sql import SparkSession
 from sklearn.metrics import classification_report
+import hashlib
+import requests
 
 cpu_count = psutil.cpu_count()
 windows = 110
@@ -16,6 +18,8 @@ qdata_prefix = "https://raw.githubusercontent.com/zuoxiaolei/qdata/main/data/"
 github_proxy_prefix = "https://ghproxy.com/"
 sequence_length = 10
 seq_length = 30
+tz = pytz.timezone('Asia/Shanghai')
+now = datetime.now(tz).strftime("%Y%m%d")
 
 
 def load_spark_sql():
@@ -47,6 +51,39 @@ def get_spark():
 
 
 spark = get_spark()
+
+
+def get_file_md5(file_name):
+    """
+    计算文件的md5
+    :param file_name:
+    :return:
+    """
+    m = hashlib.md5()  # 创建md5对象
+    with open(file_name, 'rb') as fobj:
+        while True:
+            data = fobj.read(4096)
+            if not data:
+                break
+            m.update(data)  # 更新md5对象
+    return m.hexdigest()
+
+
+def load_md5(filename):
+    with open(filename, 'r', encoding='utf-8') as fh:
+        md5_string = fh.read()
+        return md5_string.strip()
+
+
+def send_message(content):
+    params = {
+        'token': 'b0b21688d4694f7999c301386ee90a0c',
+        'title': now,
+        'content': content,
+        'template': 'txt'}
+    url = 'http://www.pushplus.plus/send'
+    res = requests.get(url, params=params)
+    print(res)
 
 
 def process_data(is_local=False):
@@ -157,6 +194,21 @@ def run_qtrade3(is_local=False):
     result_df = result.toPandas()
     result_df.to_csv("data/ads/history_data2.csv")
     result_df = result_df[result_df.date == result_df.date.max()]
+    result_df.to_csv("data/ads/history_data_latest.csv", index=False)
+    md5_string = get_file_md5("data/ads/history_data_latest.csv")
+    old_md5_string = load_md5("data/md5.txt")
+    print(old_md5_string)
+    print(md5_string)
+    if md5_string != old_md5_string:
+        content = ''
+        cols = 'code,name,date,scale,pattern,success_rate,success_cnt,fund_cnt'.split(',')
+        for index, row in result_df.iterrows():
+            for col in cols:
+                content = content + f"{col}: {row[col]}\n"
+            content += "\n"
+        send_message(content)
+        with open("data/md5.txt", 'w', encoding='utf-8') as fh:
+            fh.write(md5_string)
     string = ""
     if len(result_df):
         tz = pytz.timezone('Asia/Shanghai')
@@ -258,8 +310,11 @@ def run_qtrade4():
     print(string)
 
 
-if __name__ == '__main__':
+def main(is_local=False):
     start_time = time.time()
-    is_local = False
     run_down_buy_strategy(is_local)
     print(f"run_down_buy_strategy cost {time.time() - start_time} second")
+
+
+if __name__ == '__main__':
+    main(is_local=False)
