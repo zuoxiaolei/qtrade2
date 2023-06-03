@@ -211,8 +211,8 @@ from (select code,
                         from df t1
                                  join scale_df t2
                                       on t1.code = t2.code
-                                 left join fund_etf_fund_daily_em_df t3
-                                           on t1.code = t3.code) t) t1
+                                 join fund_etf_fund_daily_em_df t3
+                                           on t1.code = t3.code and t3.type not like '%QDII%') t) t1
                      join pattern t2
                           on 1 = 1) t
       where flag = 0) t

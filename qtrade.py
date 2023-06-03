@@ -177,8 +177,8 @@ def run_qtrade3(is_local=False):
     stock_df = pd.read_csv(stock_df_filename, dtype={"code": object})
     scale_df = pd.read_csv(scale_df_filename, dtype={"code": object})
     fund_etf_fund_daily_em_df = pd.read_csv(fund_etf_fund_daily_em_df_filename, dtype={'基金代码': object})
-    fund_etf_fund_daily_em_df = fund_etf_fund_daily_em_df[['基金代码', '基金简称']]
-    fund_etf_fund_daily_em_df.columns = ['code', 'name']
+    fund_etf_fund_daily_em_df = fund_etf_fund_daily_em_df[['基金代码', '基金简称', '类型']]
+    fund_etf_fund_daily_em_df.columns = ['code', 'name', 'type']
 
     df = spark.createDataFrame(stock_df)
     scale_df = spark.createDataFrame(scale_df)
