@@ -75,9 +75,14 @@ def load_md5(filename):
         return md5_string.strip()
 
 
-def send_message(content):
+tokens = ['b0b21688d4694f7999c301386ee90a0c',
+          '4b4b075475bc41e8a39704008677010f',  # peilin
+          ]
+
+
+def send_message(content, token):
     params = {
-        'token': 'b0b21688d4694f7999c301386ee90a0c',
+        'token': token,
         'title': now,
         'content': content,
         'template': 'txt'}
@@ -206,7 +211,8 @@ def run_qtrade3(is_local=False):
             for col in cols:
                 content = content + f"{col}: {row[col]}\n"
             content += "\n"
-        send_message(content)
+        for token in tokens:
+            send_message(content, token)
         with open("data/md5.txt", 'w', encoding='utf-8') as fh:
             fh.write(md5_string)
     string = ""
@@ -229,9 +235,9 @@ def get_profit():
     df = pd.read_csv("data/ads/history_data2.csv")
     df = df.sort_values(by=["date", "scale"], ascending=[False, False])
     df = df.groupby("date").head(1)
-    df["year"] = df["date"].map(lambda x: x[:4])
-    profit = df.groupby("year")["profit"].sum()
-    print(profit)
+    df["month"] = df["date"].map(lambda x: x[:7])
+    profit = df.groupby("month")["profit"].sum()
+    print(profit.tail(20))
     return profit[-1]
 
 
