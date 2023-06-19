@@ -1,5 +1,5 @@
 
-# 20230619 qtrade3
+# 20230620 qtrade3
  | code | name | date | scale | profit | pattern | success_rate | success_cnt | fund_cnt | 
  | :----- | :----- | :----- | :----- | :----- | :----- | :----- | :----- | :----- | 
  | 588080 | 易方达上证科创板50成份ETF行情 | 2023-06-19 | 206.34 | nan | 11001***** | 0.85 | 17 | 20 | 
