@@ -203,8 +203,8 @@ def run_qtrade3(is_local=False):
     result_df.to_csv("data/ads/history_data_latest.csv", index=False)
     md5_string = get_file_md5("data/ads/history_data_latest.csv")
     old_md5_string = load_md5("data/md5.txt")
-    print(old_md5_string)
-    print(md5_string)
+
+    now_date = datetime.now(tz).strftime("%Y-%m-%d")
     if md5_string != old_md5_string:
         content = ''
         cols = 'code,name,date,scale,pattern,success_rate,success_cnt,fund_cnt'.split(',')
@@ -212,14 +212,15 @@ def run_qtrade3(is_local=False):
             for col in cols:
                 content = content + f"{col}: {row[col]}\n"
             content += "\n"
-        for token in tokens:
-            send_message(content, token)
+        print(now_date, result_df.date.max())
+        if now_date==result_df.date.max():
+            for token in tokens:
+                send_message(content, token)
         with open("data/md5.txt", 'w', encoding='utf-8') as fh:
             fh.write(md5_string)
+    
     string = ""
     if len(result_df):
-        tz = pytz.timezone('Asia/Shanghai')
-        now = datetime.now(tz).strftime("%Y%m%d")
         title = "# {} qtrade3".format(now)
         string = write_table(title, result_df.columns.tolist(), result_df)
     return string
