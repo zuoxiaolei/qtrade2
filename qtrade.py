@@ -69,6 +69,12 @@ def get_file_md5(file_name):
     return m.hexdigest()
 
 
+def get_string_md5(string):
+    m = hashlib.md5()
+    m.update(string.encode('utf-8'))
+    return m.hexdigest()
+
+
 def load_md5(filename):
     with open(filename, 'r', encoding='utf-8') as fh:
         md5_string = fh.read()
@@ -203,8 +209,7 @@ def run_qtrade3(is_local=False):
     result_df.to_csv("data/ads/history_data_latest.csv", index=False)
     md5_string = get_file_md5("data/ads/history_data_latest.csv")
     old_md5_string = load_md5("data/md5.txt")
-    print(old_md5_string)
-    print(md5_string)
+
     if md5_string != old_md5_string:
         content = ''
         cols = 'code,name,date,scale,pattern,success_rate,success_cnt,fund_cnt'.split(',')

@@ -30,6 +30,9 @@ jobs:
       - name: run application
         run: |
           python qtrade.py
+      - name: run nasdaq_strategy.py
+        run: |
+          python nasdaq_strategy.py
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: auto update
