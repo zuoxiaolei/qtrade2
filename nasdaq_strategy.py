@@ -1,5 +1,7 @@
 import akshare as ak
 from qtrade import send_message, load_md5, get_string_md5
+import pytz
+from datetime import datetime
 
 symbol = '100.NDX'
 tokens = ['b0b21688d4694f7999c301386ee90a0c',  # xiaolei
@@ -55,4 +57,7 @@ def nasdaq_strategy():
 
 
 if __name__ == '__main__':
-    nasdaq_strategy()
+    tz = pytz.timezone('Asia/Shanghai')
+    now = datetime.now(tz)
+    if 9 <= now.hour <= 15:
+        nasdaq_strategy()
