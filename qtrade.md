@@ -1,5 +1,5 @@
 
-# 20230629 qtrade3
+# 20230630 qtrade3
  | code | name | date | scale | profit | pattern | success_rate | success_cnt | fund_cnt | 
  | :----- | :----- | :----- | :----- | :----- | :----- | :----- | :----- | :----- | 
  | 510330 | 华夏沪深300ETF行情 | 2023-06-28 | 246.84 | nan | 1100001*** | 0.875 | 21 | 24 | 
